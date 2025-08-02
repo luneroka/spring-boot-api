@@ -1,8 +1,6 @@
 package com.luneroka.spring_boot_api;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +17,11 @@ public class SoftwareEngineerController {
   @GetMapping
   public List<SoftwareEngineer> getSoftwareEngineers() {
     return softwareEngineerService.getAllSoftwareEngineers();
+  }
+
+  @PostMapping
+  public void createSoftwareEngineer(@RequestBody SoftwareEngineer softwareEngineer) {
+    softwareEngineerService.insertSoftwareEngineer(softwareEngineer);
   }
 }
 
