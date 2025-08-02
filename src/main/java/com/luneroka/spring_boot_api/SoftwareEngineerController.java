@@ -23,5 +23,11 @@ public class SoftwareEngineerController {
   public void createSoftwareEngineer(@RequestBody SoftwareEngineer softwareEngineer) {
     softwareEngineerService.insertSoftwareEngineer(softwareEngineer);
   }
+
+  @GetMapping("{id}")
+  public SoftwareEngineer getEngineerById(@PathVariable Integer id) {
+    return softwareEngineerService.getSoftwareEngineerById(id);
+  }
 }
+
 
