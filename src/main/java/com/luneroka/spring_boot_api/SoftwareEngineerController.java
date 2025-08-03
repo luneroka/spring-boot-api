@@ -28,6 +28,16 @@ public class SoftwareEngineerController {
   public SoftwareEngineer getEngineerById(@PathVariable Integer id) {
     return softwareEngineerService.getSoftwareEngineerById(id);
   }
+
+  @DeleteMapping("{id}")
+  public void deleteSoftwareEngineer(@PathVariable Integer id) {
+    softwareEngineerService.deleteSoftwareEngineerById(id);;
+  }
+
+  @PutMapping("{id}")
+  public void updateSoftwareEngineer(@RequestBody SoftwareEngineer softwareEngineer, @PathVariable Integer id) {
+    softwareEngineerService.updateSoftwareEngineer(id, softwareEngineer);
+  }
 }
 
 

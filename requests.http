@@ -1,17 +1,29 @@
-### GET request
+### GET Index
 GET http://localhost:8080
 
-###
+### GET Engineers
 GET http://localhost:8080/api/v1/software-engineers
 
-###
-GET http://localhost:8080/api/v1/software-engineers/2
+### GET Engineer By Id
+GET http://localhost:8080/api/v1/software-engineers/1
 
-### POST request
+### POST new Engineer
 POST http://localhost:8080/api/v1/software-engineers
 Content-Type: application/json
 
 {
-  "name": "Alex",
-  "techStack": "docker, kubernetes"
+  "name": "Boris",
+  "techStack": "java, springboot"
+}
+
+### DELETE Engineer
+DELETE http://localhost:8080/api/v1/software-engineers/1
+
+### PUT Engineer
+PUT http://localhost:8080/api/v1/software-engineers/1
+Content-Type: application/json
+
+{
+  "name": "Boris",
+  "techStack": "javascript, springboot"
 }

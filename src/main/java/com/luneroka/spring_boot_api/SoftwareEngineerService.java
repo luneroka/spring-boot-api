@@ -1,6 +1,7 @@
 package com.luneroka.spring_boot_api;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Collections;
 import java.util.List;
@@ -24,5 +25,17 @@ public class SoftwareEngineerService {
 
   public SoftwareEngineer getSoftwareEngineerById(Integer id) {
     return softwareEngineerRepository.findById(id).orElseThrow(() -> new IllegalStateException(id + " not found"));
+  }
+
+  public void deleteSoftwareEngineerById(Integer id) {
+    var softwareEngineerToDelete = softwareEngineerRepository.findById(id).orElseThrow(() -> new IllegalStateException(id + " not found"));
+    softwareEngineerRepository.deleteById(softwareEngineerToDelete.getId());
+  }
+
+  public void updateSoftwareEngineer(Integer id, SoftwareEngineer updatedSoftwareEngineer) {
+    SoftwareEngineer softwareEngineerToUpdate = softwareEngineerRepository.findById(id).orElseThrow(() -> new IllegalStateException(id + " not found"));
+    softwareEngineerToUpdate.setName(updatedSoftwareEngineer.getName());
+    softwareEngineerToUpdate.setTechStack(updatedSoftwareEngineer.getTechStack());
+    softwareEngineerRepository.save(softwareEngineerToUpdate);
   }
 }
